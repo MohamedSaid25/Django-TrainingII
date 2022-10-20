@@ -9,7 +9,8 @@ from django.db import models
 class Artist(models.Model):
 
     stageName = models.CharField(
-        max_length=100, unique=True, blank=False, null=False)
+        max_length=100, unique=True, blank=False, null=False
+    )
     socialMediaProfile = models.URLField(
         max_length=200, blank=True, null=False)
 

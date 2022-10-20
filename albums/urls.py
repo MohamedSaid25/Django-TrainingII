@@ -3,6 +3,6 @@ from . import views
 urlpatterns = [
 
     # path #callFunction #name of function
-    path('', views.roma, name='roma')
+    path('create', views.createAlbum, name='create')
 
 ]
