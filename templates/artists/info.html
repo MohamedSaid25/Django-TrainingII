@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist list</title>
+</head>
+
+
+<body>
+    
+<h1> Artist List</h1>
+
+{%for artist in Artists%}
+
+<p> id :  {{artist.id}}</p>
+<h3> Stage name : {{artist.stageName}}</h3>
+<h4>Social : {{artist.socialMediaProfile}}</h4>
+<h2> Albums : </h2>
+<ul>
+    
+    {%for album in artist.album_set.all %}
+        <li>id : {{album.id}}</li>
+        <li>Name : {{album.name}}</li>
+        <li>Creation Time : {{album.creationTime}}</li>
+        <li>Release datetime : {{album.release}} </li>
+        <li>Cost : {{album.cost}}</li>
+        <p>--------------------------------------</p>
+    {%endfor%}
+
+</ul>
+
+
+
+
+
+{%endfor%}
+
+
+
+
+</body>
+</html>
+

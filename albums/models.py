@@ -11,7 +11,7 @@ class Album(models.Model):
     name = models.CharField(max_length=100, default='New Album', blank=True)
     artistName = models.ForeignKey(
         Artist, on_delete=models.CASCADE, null=False)
-    creationTime = models.DateTimeField(default=datetime.now)
+    creationTime = models.DateTimeField(auto_now_add=True)
     release = models.DateTimeField(
         default=datetime.now, null=False, blank=False)
     cost = models.DecimalField(max_digits=10, decimal_places=3, default=0.0)

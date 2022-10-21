@@ -1,0 +1,60 @@
+
+ <!DOCTYPE html>
+ <html>
+ <head>
+    <style>
+        
+        body{
+            background-color: cornsilk;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 180px;
+        }
+        
+        label {
+            margin-top: 19px;
+        }
+
+        input {
+            margin-top: 7px;
+        }
+        
+        .helptext {
+            font-size: smaller;
+        }
+        .container {
+         
+            background: wheat;
+            display: flex;
+            justify-content: center;
+            border: 1px solid #ceec00;
+            width: 47%;
+            padding: 50px;
+            margin-left: 261px;
+            margin-top: 150px;
+        
+        }
+        .errorlist{
+            color:red
+        }
+    </style>
+    
+ </head>
+ <body>
+    
+    
+    <div class="container">
+
+        <form method="POST">
+            {% csrf_token %}
+            
+            {{form}}
+            <input type="submit" value="save">
+            
+        </form> 
+    </div>
+ </body>
+ </html> 
+
