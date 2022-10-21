@@ -7,10 +7,14 @@ from .models import Artist
 
 def addArtist(request):
 
-    if request.method == 'POST':
+    form = CreateArtist(request.POST or None)
 
-        newArtist = CreateArtist(request.POST)
-        if newArtist.is_valid():
-            newArtist.save()
+    if form.is_valid():
+        form.save()
+        form = CreateArtist()
+    context = {
 
-    return render(request, 'artists/addArtist.html', {'addArtist': CreateArtist})
+        'form': form
+    }
+
+    return render(request, 'artists/addArtist.html', context)

@@ -6,10 +6,12 @@ from .models import Album
 
 
 def createAlbum(request):
-    if request.method == 'POST':
 
-        newAlbum = CreateAlbum(request.POST)
-        if newAlbum.is_valid():
-            newAlbum.save()
-
-    return render(request, 'albums/createAlbum.html', {'createAlbum': CreateAlbum})
+    form = CreateAlbum(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = createAlbum()
+    context = {
+        'form': form
+    }
+    return render(request, 'albums/createAlbum.html', context)

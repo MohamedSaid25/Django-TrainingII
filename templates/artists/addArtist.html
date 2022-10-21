@@ -4,6 +4,9 @@
  <head>
     <style>
         
+        body{
+            background-color: cornsilk;
+        }
         form {
             display: flex;
             flex-direction: column;
@@ -22,11 +25,20 @@
             font-size: smaller;
         }
         .container {
+         
+            background: wheat;
             display: flex;
             justify-content: center;
-            margin-top: 200px;
+            border: 1px solid #ceec00;
+            width: 47%;
+            padding: 50px;
+            margin-left: 261px;
+            margin-top: 150px;
+        
         }
-
+        .errorlist{
+            color:red
+        }
     </style>
     
  </head>
@@ -38,7 +50,7 @@
         <form method="POST">
             {% csrf_token %}
             
-            {{addArtist}}
+            {{form}}
             <input type="submit" value="save">
             
         </form> 

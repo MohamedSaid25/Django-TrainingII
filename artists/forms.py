@@ -8,9 +8,11 @@ class CreateArtist(forms.ModelForm):
         model = Artist
         fields = ['stageName', 'socialMediaProfile']
 
-        def clean_stageName(self):
-            stageName = self.cleaned_data.get('stageName')
-            print("SSSSSSSSSSS", stageName)
-            if Artist.objects.filter(stageName=stageName).exists():
-                raise forms.ValidationError('Already Exist')
+    def clean_stageName(self, *args, **kwargs):
+
+        stageName = self.cleaned_data.get("stageName")
+        if Artist.objects.filter(stageName=stageName).exists():
+            raise forms.ValidationError(
+                "already Exist in database try another name")
+        else:
             return stageName
