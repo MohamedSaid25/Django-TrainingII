@@ -1,33 +1,21 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.views.generic import ListView, FormView
 from .forms import CreateArtist
 from .models import Artist
-from albums.models import Album
 # Create your views here.
 
 
-def addArtist(request):
+class ArtistForm(FormView):
+    form_class = CreateArtist
+    template_name = 'artists/addArtist.html'
+    success_url = 'create'
 
-    form = CreateArtist(request.POST or None)
-
-    if form.is_valid():
+    def form_valid(self, form):
         form.save()
-        form = CreateArtist()
-    context = {
-
-        'form': form
-    }
-
-    return render(request, 'artists/addArtist.html', context)
+        return super().form_valid(form)
 
 
-def artistInfo(request):
-
-    allArtists = Artist.objects.all()
-
-    context = {
-
-        'Artists': allArtists
-    }
-
-    return render(request, 'artists/info.html', context)
+class ArtistList(ListView):
+    model: Artist
+    context_object_name = 'Artists'
+    template_name = 'artists/info.html'
+    queryset = Artist.objects.all()
