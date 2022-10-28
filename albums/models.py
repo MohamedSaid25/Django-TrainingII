@@ -1,8 +1,11 @@
 from email.policy import default
 from django.db import models
 from datetime import datetime
-
+from imagekit.models import ProcessedImageField
 from artists.models import Artist
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+from django.core.validators import FileExtensionValidator
 
 # Create your models here.
 
@@ -21,3 +24,23 @@ class Album(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Song(models.Model):
+    album = models.ForeignKey(
+        Album, on_delete=models.CASCADE, related_name='song_set')
+    name = models.CharField(max_length=100, blank=True)
+    image = models.ImageField()
+    thumbnail = ProcessedImageField(format='JPEG')
+    audio = models.FileField(
+        validators=[FileExtensionValidator(['mp3', 'wav'])])
+
+    def __str__(self):
+        return self.name
+
+
+@receiver(pre_save, sender=Song)
+def song_pre_save(sender, instance, **kwargs):
+    if instance.name == "":
+        album = Album.objects.get(pk=instance.album.id)
+        instance.name = album.name

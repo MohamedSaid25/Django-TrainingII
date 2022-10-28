@@ -1,6 +1,7 @@
 from dataclasses import fields
 from django import forms
 from .models import Album
+from django.forms.models import BaseInlineFormSet
 
 
 class CreateAlbum(forms.ModelForm):

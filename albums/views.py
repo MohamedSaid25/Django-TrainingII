@@ -12,18 +12,3 @@ class CreateForm(FormView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
-
-
-"""
-def createAlbum(request):
-
-    form = CreateAlbum(request.POST or None)
-    if form.is_valid():
-        form.save()
-        form = createAlbum()
-    context = {
-        'form': form
-    }
-    return render(request, 'albums/createAlbum.html', context)
-
-"""
