@@ -1,10 +1,11 @@
 from django.views.generic import ListView, FormView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CreateArtist
 from .models import Artist
 # Create your views here.
 
 
-class ArtistForm(FormView):
+class ArtistForm(LoginRequiredMixin, FormView):
     form_class = CreateArtist
     template_name = 'artists/addArtist.html'
     success_url = 'create'
