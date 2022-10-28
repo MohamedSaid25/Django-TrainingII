@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CreateUserForm,LoginForm
+from .forms import CreateUserForm, LoginForm
 from django.views.generic import FormView, View
 from django.contrib.auth import authenticate, login
 # Create your views here.
@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate, login
 class RegistrationForm(FormView):
     form_class = CreateUserForm
     template_name = 'accounts/register.html'
-    success_url = 'register'
+    success_url = 'login'
 
     def form_valid(self, form):
         if form.is_valid():
