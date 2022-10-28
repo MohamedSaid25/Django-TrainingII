@@ -42,5 +42,5 @@ class Song(models.Model):
 @receiver(pre_save, sender=Song)
 def song_pre_save(sender, instance, **kwargs):
     if instance.name == "":
-        album = Album.objects.get(pk=instance.album.id)
-        instance.name = album.name
+        my_album_name = Album.objects.get(pk=instance.album.id)
+        instance.name = my_album_name.name
