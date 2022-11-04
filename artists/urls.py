@@ -3,6 +3,6 @@ from . import views
 
 urlpatterns = [
     path('create', views.ArtistForm.as_view(), name="create"),
-    path('', views.ArtistList.as_view(),name='artists'),
+    path('', views.ArtistApiview.as_view(), name="artistsApi"),
 
 ]
