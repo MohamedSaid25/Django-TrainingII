@@ -3,12 +3,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CreateArtist
 from .models import Artist
 from .serializers import ArtistSerializer
-from artists import serializers
-from django.http import JsonResponse, Http404
-from rest_framework.parsers import JSONParser
 from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status, mixins, generics
+from rest_framework import mixins, generics
 
 # Create your views here.
 
