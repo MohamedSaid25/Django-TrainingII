@@ -13,6 +13,8 @@ django-imagekit = "^4.1.0"
 pillow = "^9.2.0"
 djangorestframework = "^3.14.0"
 pygments = "^2.13.0"
+django-extensions = "^3.2.1"
+django-rest-knox = "^4.2.0"
 
 
 [build-system]
