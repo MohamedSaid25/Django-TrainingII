@@ -25,7 +25,7 @@ class RegisterSerializer(serializers.Serializer):
             username=username).first()
         if already_existing_username:
             raise serializers.ValidationError(
-                " this username already exist try another one")
+                "this username already exist try another one")
         return username
 
     def validate(self, data):
@@ -33,7 +33,7 @@ class RegisterSerializer(serializers.Serializer):
         if not data.get('password') or not data.get('confirm_password'):
             raise serializers.ValidationError("Can not be empty")
         if len(data.get('password')) < 10:
-            raise serializers.ValidationError("Password too short ")
+            raise serializers.ValidationError("Password too short")
         if data.get('password') != data.get('confirm_password'):
             raise serializers.ValidationError("two passwords must be same")
 
