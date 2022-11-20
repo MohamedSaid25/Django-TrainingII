@@ -7,11 +7,14 @@ from django.forms.models import BaseInlineFormSet
 class CreateAlbum(forms.ModelForm):
     class Meta:
         model = Album
-        fields = ['name', 'artistName', 'release', 'cost']
+        fields = ['name', 'artistName', 'release', 'cost', 'isApproved']
+        widgets = {
+            'release': forms.DateInput(format=('%m/%d/%Y'), attrs={'type': 'date'}),
+        }
 
     def clean_name(self, *args, **kwargs):
         name = self.cleaned_data.get("name")
-        if name == "New Album":
+        if name == "":
             raise forms.ValidationError("Please Enter Your Album Name")
         else:
             return name

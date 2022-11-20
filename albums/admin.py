@@ -5,7 +5,7 @@ from .models import Album, Song
 
 
 class AlbumAdmin(admin.ModelAdmin):
-    readonly_fields = ('creationTime',)
+    readonly_fields = ('creationTime', 'modified')
     #list_display = ['artistName', 'name']
 
 
