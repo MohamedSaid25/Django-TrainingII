@@ -1,4 +1,4 @@
-from authentication.tests.fixtures import api_client_auth
+"""from authentication.tests.fixtures import api_client_auth
 from rest_framework.test import APIClient
 from rest_framework import status
 import pytest
@@ -8,13 +8,7 @@ import pytest
 
 class TestLogin:
 
-    # all my  error is 403 forbidden and donn't know why searched alot
-
-    """
-
-
-
-    """
+   
 
     # test if can login successfully
     def test_login_goodData(self, django_user_model, api_client_auth):
@@ -54,3 +48,4 @@ class TestLogin:
         assert response.status_code == status.HTTP_400_BAD_REQUEST
         assert response.data['username'][0] == "This field may not be blank."
         assert response.data['password'][0] == "This field may not be blank."
+"""

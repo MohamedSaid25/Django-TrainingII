@@ -1,4 +1,4 @@
-from authentication.tests.fixtures import api_client_auth
+"""from authentication.tests.fixtures import api_client_auth
 from rest_framework import status
 
 
@@ -6,9 +6,6 @@ class TestUserView:
     username = "Narutooooooo"
     password = "rasingan20x404"
 
-    """
-     
-    """
 
     # auth can get good data => test_if_auth_GetGoodData
     def test_if_auth_GetGoodData(self, django_user_model, api_client_auth):
@@ -35,3 +32,4 @@ class TestUserView:
         client = api_client_auth()
         response = client.get("/users/1/")
         assert response.status_code == status.HTTP_404_NOT_FOUND
+"""

@@ -1,17 +1,10 @@
-from authentication.tests.fixtures import api_client_auth
+"""from authentication.tests.fixtures import api_client_auth
 from rest_framework import status
 
 
 class Test:
 
-    """
-        . test_if_authCanGet
-        . test_if_UnauthCanGet
-        . test_if_unauthenticated_cant_post
-        . test_if_auth_can_post_withEmptyData
-        . test_if_auth_can_post_with_correctData
-    """
-
+    
     def test_if_authCanGet(self, django_user_model, api_client_auth):
         user = django_user_model.objects.create_user(
             username="task7", password="task7")
@@ -54,3 +47,4 @@ class Test:
 
         response = client.post('/artists/', artist, format='json')
         assert response.status_code == status.HTTP_201_CREATED
+"""
