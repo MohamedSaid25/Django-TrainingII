@@ -6,11 +6,13 @@ from artists.models import Artist
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.core.validators import FileExtensionValidator
+from model_utils.models import TimeStampedModel
+
 
 # Create your models here.
 
 
-class Album(models.Model):
+class Album(TimeStampedModel):
     name = models.CharField(max_length=100, default='New Album', blank=True)
     artistName = models.ForeignKey(
         Artist, on_delete=models.CASCADE, null=False)
