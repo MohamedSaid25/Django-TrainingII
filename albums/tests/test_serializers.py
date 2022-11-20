@@ -8,6 +8,7 @@ from datetime import datetime
 
 @pytest.mark.django_db
 def test_AlbumSerializer_validData():
+    # Expected
     # create user
     user = User.objects.create(
         username='task8', password='sadboy2022')
@@ -21,9 +22,13 @@ def test_AlbumSerializer_validData():
     serializer = AlbumSerializer(addAlbum)
 
     assert addAlbum.artistName.id == serializer.data['artistName']['id']
+    assert addAlbum.artistName.stageName == serializer.data['artistName']['stageName']
+    assert addAlbum.artistName.socialMediaProfile == serializer.data[
+        'artistName']['socialMediaProfile']
     assert addAlbum.name == serializer.data['name']
     assert str(addAlbum.release)[:1] == str(serializer.data['release'])[:1]
     assert addAlbum.cost == float(serializer.data['cost'])
+    assert addAlbum.id == serializer.data['id']
 
 
 @pytest.mark.django_db
