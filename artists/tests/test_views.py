@@ -1,10 +1,9 @@
-"""from authentication.tests.fixtures import api_client_auth
+from authentication.tests.fixtures import api_client_auth
 from rest_framework import status
 
 
 class Test:
 
-    
     def test_if_authCanGet(self, django_user_model, api_client_auth):
         user = django_user_model.objects.create_user(
             username="task7", password="task7")
@@ -47,4 +46,3 @@ class Test:
 
         response = client.post('/artists/', artist, format='json')
         assert response.status_code == status.HTTP_201_CREATED
-"""
